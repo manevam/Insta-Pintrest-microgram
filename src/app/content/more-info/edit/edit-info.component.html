@@ -1,0 +1,27 @@
+
+<div class="main-div">
+  <div class="img-div">
+    <img style="border-radius: 25px;" src={{post?.url}}>
+  </div>
+  <div class="details">
+    <button class="back-btn" [routerLink]="['/posts', post?.id]">Go back</button>
+    <h3>Edit your post:</h3>
+
+
+    <form #editForm = "ngForm" (ngSubmit)="editPost(editForm.value)">
+      <div>
+        <label for="title"> New title:</label><br>
+        <input type="text" id="title" [(ngModel)]="newTitle" name="newTitle">
+      </div>
+      <br>
+      <div>
+        <label for="picture">Upload Picture:</label><br>
+        <input type="file" id="picture" (change)="onPictureSelected($event)">
+      </div>
+      <br>
+      <button type="submit">Save</button>
+    </form>
+
+
+  </div>
+</div>

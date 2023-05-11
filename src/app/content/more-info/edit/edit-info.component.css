@@ -1,0 +1,63 @@
+.main-div {
+  height: 600px;
+}
+
+.img-div {
+  width: 600px;
+  display: inline-block;
+}
+
+.details {
+  padding: 20px;
+  height: 600px;
+  width: 681.39px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  vertical-align: top;
+}
+
+button {
+  -webkit-border-radius: 16px / 15px;
+  -moz-border-radius: 28;
+  width: 250px;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  background: #A393BF;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  margin: 0px 10px 20px 0px;
+  border: none;
+}
+
+button:hover {
+  background: #726786;
+  text-decoration: none;
+}
+
+.back-btn {
+  background-color: #312c39;
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 60px;
+}
+
+.back-btn:hover {
+  background: #a393bf;
+}
+
+.delete-btn {
+  background-color: #96504d;
+}
+
+.delete-btn:hover {
+  background-color: #5f0500;
+}
+
+#title {
+  min-width: 300px;
+}
+

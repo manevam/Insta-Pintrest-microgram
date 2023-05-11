@@ -1,0 +1,17 @@
+<div class="main-div">
+  <div class="img-div">
+    <img src={{post?.url}}>
+  </div>
+  <div class="details">
+    <button class="back-btn" [routerLink]="['/posts']">Go back</button>
+    <span><b>Title:</b></span>
+    <h3>{{post?.title}}</h3><br>
+    <button [routerLink]="['/edit', post?.id]">Edit</button>
+    <button class="delete-btn" (click)="onDelete(post?.id)">Delete post</button>
+  </div>
+</div>
+
+
+
+
+

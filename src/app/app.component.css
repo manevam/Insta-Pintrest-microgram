@@ -1,0 +1,20 @@
+button.active{
+  color: white;
+  border-radius: 15px;
+  background-color: #726786;
+}
+button{
+  border: none;
+  background: none;
+  font-weight: bold;
+  width: 100px;
+}
+.cont{
+  position: relative;
+}
+.new-post-btn{
+  position: absolute;
+  top: 12px;
+  right: 0px;
+
+}

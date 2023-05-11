@@ -1,0 +1,56 @@
+.main-div {
+  height: 300px;
+  width: 150px;
+  box-shadow: -5px 3px 6px 5px rgba(168, 168, 168, 0.43);
+  -webkit-box-shadow: -5px 3px 6px 5px rgba(168, 168, 168, 0.43);
+  -moz-box-shadow: -5px 3px 6px 5px rgba(168, 168, 168, 0.43);
+  background-color: rgb(251, 246, 241);
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 20px;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 16px / 15px;
+  border-radius: 16px / 15px;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  margin: 10px 25px 10px 0px;
+  display: inline-block;
+}
+.main-div img {
+  -webkit-border-radius: 16px / 15px;
+  border-radius: 15px;
+}
+.btn {
+  /* -webkit-border-radius: 16px / 15px; */
+  /* -moz-border-radius: 28; */
+  width: 150px;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  background: #A393BF;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.btn:hover {
+  background: #726786;
+  text-decoration: none;
+}
+.btn-edit{
+  width: 150px;
+  border-radius: 15px;
+  font-size: 12px;
+  border: none;
+  text-decoration:underline;
+}
+.btn-edit:hover{
+  background-color: #312c39;
+  color: white;
+}
+img{
+  width: 150px;
+  height: 150px;
+}

@@ -1,0 +1,7 @@
+<div class="main-div">
+  <h6 style="height: 55px; overflow: hidden;">{{post?.title}}</h6>
+  <hr>
+  <img src={{post?.thumbnailUrl}}>
+  <button class="btn" [routerLink]="['/posts', post?.id]" >More info</button>
+  <button class="btn-edit" [routerLink]="['/edit', post?.id]">Edit</button>
+</div>

@@ -1,0 +1,31 @@
+button {
+  -webkit-border-radius: 16px / 15px;
+  -moz-border-radius: 28;
+  width: 150px;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  margin: 0px 10px 20px 0px;
+  border: none;
+}
+.save-btn{
+  background-color: #7fb069;
+}
+.save-btn:hover{
+  background-color: #597b4a;
+}
+button[disabled] {
+  background-color: grey;
+  color: lightgrey;
+}
+
+.cancel-btn {
+  background-color: #96504d;
+}
+
+.cancel-btn:hover {
+  background-color: #5f0500;
+}

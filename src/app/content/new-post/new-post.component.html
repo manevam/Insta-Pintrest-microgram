@@ -1,0 +1,18 @@
+<h2>New Post:</h2>
+<div>
+  <form (ngSubmit)="newPost()" #newPostForm="ngForm">
+    <div>
+      <label for="title">Title:</label>
+      <em *ngIf="newPostForm.controls['title']?.invalid && newPostForm.controls['title']?.touched" style="color: red"> Required</em><br>
+      <input type="text" id="title" placeholder="Title of post..." [(ngModel)]="title" name="title" required (ngModelChange)="isTitleProvided = !!title">
+    </div><br>
+    <div>
+      <label for="picture">Upload Picture:</label><br>
+      <input type="file" id="picture" name="picture" (change)="onPictureSelect($event)" (click)="isPictureProvided = true">
+    </div>
+    <br>
+    <button type="submit" [disabled]="!isTitleProvided || !isPictureProvided" class="save-btn">Save</button>
+    <button [routerLink]="['/posts']" class="cancel-btn">Cancel</button>
+
+  </form>
+</div>
