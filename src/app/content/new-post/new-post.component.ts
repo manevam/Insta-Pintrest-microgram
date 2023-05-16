@@ -42,6 +42,13 @@ export class NewPostComponent{
     this.picture = files.item(0);
   }
 
-  
+  isTitleValid() {
+    if (this.title.trim().length > 0) {
+      return true;
+    }
+    return false;
+  }
+
+
 
 }
