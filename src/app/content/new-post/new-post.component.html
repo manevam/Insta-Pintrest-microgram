@@ -9,7 +9,7 @@
     </div><br>
     <div>
       <label for="picture">Upload Picture:</label><br>
-      <input type="file" id="picture" name="picture" (change)="onPictureSelect($event)" (click)="isPictureProvided = true">
+      <input type="file" id="picture" name="picture" (change)="onPictureSelect($event)">
     </div>
     <br>
     <button type="submit" [disabled]="!isTitleProvided || !isPictureProvided" class="save-btn">Save</button>

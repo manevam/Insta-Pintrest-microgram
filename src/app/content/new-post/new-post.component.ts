@@ -40,6 +40,7 @@ export class NewPostComponent{
     const target = event.target as HTMLInputElement;
     const files = target.files as FileList;
     this.picture = files.item(0);
+    this.isPictureProvided = files.length > 0;
   }
 
   isTitleValid() {
@@ -48,7 +49,4 @@ export class NewPostComponent{
     }
     return false;
   }
-
-
-
 }
