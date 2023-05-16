@@ -12,8 +12,10 @@ export class NewPostComponent{
   title: string = '';
   picture: File | null = null;
   isTitleProvided: boolean = false;
+  isTitleEmpty: boolean = true;
   isPictureProvided: boolean = false;
   showError: boolean = false;
+
 
   constructor(private postService: PostService,private router:Router) { }
 
@@ -44,9 +46,8 @@ export class NewPostComponent{
   }
 
   isTitleValid() {
-    if (this.title.trim().length > 0) {
+    if (this.title.trim().length > 0)
       return true;
-    }
     return false;
   }
 }

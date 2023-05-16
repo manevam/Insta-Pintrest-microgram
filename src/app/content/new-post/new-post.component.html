@@ -3,9 +3,9 @@
   <form (ngSubmit)="newPost()" #newPostForm="ngForm">
     <div>
       <label for="title">Title:</label>
-      <em *ngIf="newPostForm.controls['title']?.invalid && newPostForm.controls['title']?.touched" style="color: red"> Required</em>
-      <em *ngIf="isTitleValid()==false && newPostForm.controls['title']?.touched" style="color: red"> Title is only white space</em><br>
-      <input type="text" id="title" placeholder="Title of post..." [(ngModel)]="title" name="title" required (ngModelChange)="isTitleProvided = isTitleValid()">
+      <em *ngIf="newPostForm.controls['title']?.invalid && newPostForm.controls['title']?.touched && isTitleEmpty" style="color: red"> Required</em><br>
+      <input type="text" id="title" placeholder="Title of post..." [(ngModel)]="title" name="title" required (ngModelChange)="isTitleProvided = isTitleValid()" (blur)="isTitleEmpty = title.length === 0"><br>
+      <em *ngIf="!isTitleProvided && newPostForm.controls['title']?.touched && !isTitleEmpty " style="color: red"> Title is only white space</em><br>
     </div><br>
     <div>
       <label for="picture">Upload Picture:</label><br>
