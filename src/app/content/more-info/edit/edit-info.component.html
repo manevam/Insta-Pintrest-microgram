@@ -7,7 +7,6 @@
     <button class="back-btn" [routerLink]="['/posts', post?.id]">Go back</button>
     <h3>Edit your post:</h3>
 
-
     <form #editForm = "ngForm" (ngSubmit)="editPost(editForm.value)">
       <div>
         <label for="title"> New title:</label><br>
@@ -21,7 +20,6 @@
       <br>
       <button type="submit">Save</button>
     </form>
-
 
   </div>
 </div>

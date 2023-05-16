@@ -9,8 +9,10 @@ import { IContent } from "../../content.interface";
 })
 export class EditInfoComponent{
   post: any
-  newTitle!: string
+  newTitle!: string;
   selectedFile: File | null = null;
+  title!: string;
+
 
   constructor(private postService: PostService,
     private route: ActivatedRoute,
@@ -20,7 +22,9 @@ export class EditInfoComponent{
     this.postService.getPost(+this.route.snapshot.params['id'])
     .subscribe(post => {
       this.post = post;
+      this.newTitle = post.title;
     });
+
   }
 
   editPost(formValues: any) {
@@ -49,9 +53,14 @@ export class EditInfoComponent{
       this.router.navigate(['/posts', this.post.id]);
       });
     }
-}
+    this.title = updatedPost.title;
+  }
 
   onPictureSelected(event: any) {
-  this.selectedFile = event.target.files[0];
-}
+    this.selectedFile = event.target.files[0];
+  }
+
+  getTitle() {
+    return this.post.title;
+  }
 }

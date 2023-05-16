@@ -1,12 +1,15 @@
 .main-div {
   height: 600px;
 }
-
 .img-div {
   width: 600px;
+  height: 600px;
   display: inline-block;
 }
-
+img{
+  height: 600px;
+  width: 600px;
+}
 .details {
   padding: 20px;
   height: 600px;
