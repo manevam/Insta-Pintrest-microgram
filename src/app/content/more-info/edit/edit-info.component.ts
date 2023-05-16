@@ -11,7 +11,6 @@ export class EditInfoComponent{
   post: any
   newTitle!: string;
   selectedFile: File | null = null;
-  title!: string;
 
 
   constructor(private postService: PostService,
@@ -53,13 +52,12 @@ export class EditInfoComponent{
       this.router.navigate(['/posts', this.post.id]);
       });
     }
-    this.title = updatedPost.title;
   }
 
   onPictureSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
-
+  
   getTitle() {
     return this.post.title;
   }
