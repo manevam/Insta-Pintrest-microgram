@@ -55,17 +55,37 @@ export class PostService {
 
     if (index >= 0) {
 
+      fetch(`https://jsonplaceholder.typicode.com/photos/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+        albumId: 1,
+        id: updatedPost.id,
+        title: updatedPost.title,
+        url: updatedPost.url,
+        thumbnailUrl: updatedPost.thumbnailUrl
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
       this.POSTS[index] = { ...this.POSTS[index], ...updatedPost };
       return of(this.POSTS[index]);
     } else {
-
       return throwError(`Post with id ${id} not found.`);
     }
   }
 
   deletePost(id: number): Observable<any> {
   const index = this.POSTS.findIndex((p) => p.id === id);
-  if (index >= 0) {
+    if (index >= 0) {
+
+      fetch(`https://jsonplaceholder.typicode.com/photos/${id}`, {
+        method: 'DELETE',
+      });
+
     this.POSTS.splice(index, 1);
     return of(this.POSTS);
   } else {
@@ -90,7 +110,7 @@ export class PostService {
   }
 
   addPost(post: IContent) {
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch(`https://jsonplaceholder.typicode.com/photos/${post.id}`, {
       method: 'POST',
       body: JSON.stringify({
         albumId: 1,
