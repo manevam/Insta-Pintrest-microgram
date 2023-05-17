@@ -1,22 +1,18 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable, Subject, of, throwError,BehaviorSubject } from "rxjs";
 import { IContent } from "../content/content.interface";
 import { catchError, filter, first, map, tap } from 'rxjs/operators';
 import { Router } from "@angular/router";
 
 @Injectable()
-export class PostService implements OnInit {
+export class PostService {
   private POSTS: IContent[] = [];
   private postsSubject = new BehaviorSubject<IContent[]>([]);
 
-  constructor(private http: HttpClient, private router:Router) {}
-
-  ngOnInit() {
+  constructor(private http: HttpClient, private router: Router) {
     this.getPosts().subscribe();
-
   }
-
   getPosts(): Observable<IContent[]> {
     if (this.POSTS.length > 0) {
       return this.postsSubject.asObservable();
