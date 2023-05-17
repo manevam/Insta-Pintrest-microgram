@@ -90,10 +90,25 @@ export class PostService {
   }
 
   addPost(post: IContent) {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        albumId: 1,
+        id: post.id,
+        title: post.title,
+        url: post.url,
+        thumbnailUrl: post.thumbnailUrl
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+
     this.POSTS.push(post);
     console.log('se stavi')
   }
-
-
 }
 

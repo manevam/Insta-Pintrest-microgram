@@ -58,7 +58,7 @@ export class NewPostComponent{
   }
 
   canDeactivate(): boolean {
-    if (this.isPictureProvided && this.isTitleProvided) {
+    if (this.isPictureProvided && this.isTitleProvided && !this.saved) {
       return confirm("Are you sure you want to leave this page without saving?");
     }
     return true;
