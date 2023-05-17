@@ -1,15 +1,16 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, OnInit } from "@angular/core";
 import { Observable, Subject, of, throwError,BehaviorSubject } from "rxjs";
 import { IContent } from "../content/content.interface";
 import { catchError, filter, first, map, tap } from 'rxjs/operators';
+import { Router } from "@angular/router";
 
 @Injectable()
 export class PostService implements OnInit {
   private POSTS: IContent[] = [];
   private postsSubject = new BehaviorSubject<IContent[]>([]);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router:Router) {}
 
   ngOnInit() {
     this.getPosts().subscribe();
@@ -35,10 +36,17 @@ export class PostService implements OnInit {
 
   getPost(id: number): Observable<IContent> {
     const post = this.POSTS.find((p) => p.id === id);
+    console.log("vleguva vo getPost");
     if (post) {
       return of(post);
     } else {
       return this.http.get<IContent>(`https://jsonplaceholder.typicode.com/photos/${id}`).pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
+          return throwError(error);
+        }),
         tap((p) => {
           this.POSTS.push(p);
         })

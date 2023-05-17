@@ -15,10 +15,10 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, private postService:PostService) {}
 
   ngOnInit() {
-    this.postService.getPosts().subscribe(posts => {
-      this.posts = posts;
-      console.log(this.posts);
-    });
+    // this.postService.getPosts().subscribe(posts => {
+    //   this.posts = posts;
+    //   console.log(this.posts);
+    // });
   }
 
 
