@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { PostService } from "src/app/services/post.service";
 import { IContent } from "../content.interface";
 import { Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 @Component({
   templateUrl: './new-post.component.html',
@@ -15,6 +16,7 @@ export class NewPostComponent{
   isTitleEmpty: boolean = true;
   isPictureProvided: boolean = false;
   showError: boolean = false;
+  saved: boolean = false;
 
 
   constructor(private postService: PostService,private router:Router) { }
@@ -50,4 +52,16 @@ export class NewPostComponent{
       return true;
     return false;
   }
+
+  onSave() {
+    this.saved = true;
+  }
+
+  canDeactivate(): boolean {
+    if (this.isPictureProvided && this.isTitleProvided) {
+      return confirm("Are you sure you want to leave this page without saving?");
+    }
+    return true;
+  }
+
 }

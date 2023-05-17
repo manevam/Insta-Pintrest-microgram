@@ -13,9 +13,9 @@ import { EditInfoComponent } from './content/more-info/edit/edit-info.component'
 import { NewPostComponent } from './content/new-post/new-post.component';
 import { Error404Component } from './errors/404.component';
 import { PostActivator } from './content/more-info/post-activator.service';
-import { ContentListResolver } from './content/content-list-resolver.service';
 import { IContent } from './content/content.interface';
 import { FormsModule } from '@angular/forms';
+import { ConfirmLeaveGuard } from './content/new-post/can-leave.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { FormsModule } from '@angular/forms';
       provide: 'canCancelNewPost',
       useValue: checkDirtyState
     },
-    ContentListResolver
+    ConfirmLeaveGuard
   ],
   bootstrap: [AppComponent]
 })

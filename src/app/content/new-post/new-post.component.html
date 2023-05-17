@@ -12,7 +12,7 @@
       <input type="file" id="picture" name="picture" (change)="onPictureSelect($event)">
     </div>
     <br>
-    <button type="submit" [disabled]="!isTitleProvided || !isPictureProvided" class="save-btn">Save</button>
+    <button type="submit" [disabled]="!isTitleProvided || !isPictureProvided" class="save-btn" (click)="onSave()">Save</button>
     <button [routerLink]="['/posts']" class="cancel-btn">Cancel</button>
 
   </form>
