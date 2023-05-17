@@ -14,5 +14,6 @@ export const appRoutes: Routes = [
   { path: 'edit/:id', component: EditInfoComponent },
   { path: 'posts/:id', component: MoreInfoComponent, canActivate: [PostActivator] },
   { path: '404', component: Error404Component },
-  { path: '', redirectTo: '/posts', pathMatch: 'full' }
+  { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: '**', redirectTo: '/posts' }
 ]
