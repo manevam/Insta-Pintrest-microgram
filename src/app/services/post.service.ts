@@ -11,7 +11,6 @@ export class PostService {
   private postsSubject = new BehaviorSubject<IContent[]>([]);
 
   constructor(private http: HttpClient, private router: Router) {
-    this.getPosts().subscribe();
   }
   getPosts(): Observable<IContent[]> {
     if (this.POSTS.length > 0) {
