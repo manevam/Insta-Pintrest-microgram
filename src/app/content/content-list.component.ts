@@ -9,7 +9,7 @@ import { IContent } from "./content.interface";
   styleUrls: ["./content-list.component.css"]
 })
 export class ContentListComponent implements OnInit{
-  posts: IContent | any;
+  posts: IContent []= [];
 
   constructor(private postService: PostService, private route: ActivatedRoute,
   private changeDetection: ChangeDetectorRef) {
@@ -29,10 +29,14 @@ export class ContentListComponent implements OnInit{
   loadNextPosts() {
 
     this.postService.currentPage++;
+    console.log(this.postService.currentPage);
 
     this.getPosts();
-
-    this.changeDetection.detectChanges();
+    if (this.posts.length <= 0) {
+      alert("No more posts");
+    } else {
+      this.changeDetection.detectChanges();
+    }
   }
 
   loadPreviousPosts() {
