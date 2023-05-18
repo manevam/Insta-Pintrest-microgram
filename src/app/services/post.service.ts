@@ -11,7 +11,6 @@ export class PostService {
   private postsSubject = new BehaviorSubject<IContent[]>([]);
 
   constructor(private http: HttpClient, private router: Router) {
-    this.getPosts().subscribe();
   }
   getPosts(): Observable<IContent[]> {
     if (this.POSTS.length > 0) {
@@ -31,10 +30,10 @@ export class PostService {
   }
 
   getPost(id: number): Observable<IContent> {
-    const post = this.POSTS.find((p) => p.id === id);
-    console.log("vleguva vo getPost");
+    const post = this.http.get<IContent>(`https://jsonplaceholder.typicode.com/photos/${id}`);
     if (post) {
-      return of(post);
+      console.log("si zima od getPost()")
+      return post;
     } else {
       return this.http.get<IContent>(`https://jsonplaceholder.typicode.com/photos/${id}`).pipe(
         catchError((error: HttpErrorResponse) => {
