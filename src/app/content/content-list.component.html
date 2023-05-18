@@ -1,3 +1,12 @@
 <div class="container-div">
   <content-part [post] = "post" *ngFor="let post of posts" ></content-part>
+
+  <div class="btn-div">
+    <button class="previous-btn" (click)="loadPreviousPosts()"><< Previous Posts</button>
+
+
+
+    <button class="next-btn" (click)="loadNextPosts()">Next Posts >></button>
+  </div>
 </div>
+

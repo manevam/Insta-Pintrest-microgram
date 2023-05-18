@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { PostService } from "../services/post.service";
 import { ActivatedRoute } from "@angular/router";
 import { IContent } from "./content.interface";
@@ -11,13 +11,38 @@ import { IContent } from "./content.interface";
 export class ContentListComponent implements OnInit{
   posts: IContent | any;
 
-  constructor(private postService: PostService, private route: ActivatedRoute) {
+  constructor(private postService: PostService, private route: ActivatedRoute,
+  private changeDetection: ChangeDetectorRef) {
 
   }
 
   ngOnInit() {
-    this.postService.getPosts().subscribe((posts) => {
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.postService.getPPosts().subscribe((posts) => {
       this.posts = posts;
     });
+  }
+
+  loadNextPosts() {
+
+    this.postService.currentPage++;
+
+    this.getPosts();
+
+    this.changeDetection.detectChanges();
+  }
+
+  loadPreviousPosts() {
+    if (this.postService.currentPage === 1) {
+      alert("This is the first page");
+    } else {
+    this.postService.currentPage--;
+    this.getPosts();
+    this.changeDetection.detectChanges();
+    }
+
   }
 }

@@ -1,3 +1,34 @@
 .container-div{
   display: inline-block;
 }
+.btn-div{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+button{
+  width: 200px;
+    border-radius: 15px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #726786;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    border: none;
+}
+button:hover{
+  background: black;
+  color: white;
+    text-decoration: none;
+}
+.previous-btn{
+  position: relative;
+  left: -28px;
+}
+
+.next-btn{
+  position: relative;
+  left: -3px;
+}

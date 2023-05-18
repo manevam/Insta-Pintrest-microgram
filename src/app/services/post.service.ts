@@ -9,9 +9,11 @@ import { Router } from "@angular/router";
 export class PostService {
   private POSTS: IContent[] = [];
   private postsSubject = new BehaviorSubject<IContent[]>([]);
+  currentPage: number = 1;
 
   constructor(private http: HttpClient, private router: Router) {
   }
+
   getPosts(): Observable<IContent[]> {
     if (this.POSTS.length > 0) {
       return this.postsSubject.asObservable();
@@ -24,6 +26,33 @@ export class PostService {
       );
     }
   }
+
+  getPPosts(): Observable<IContent[]> {
+    const startIndex = (this.currentPage - 1) * 10;
+
+    return this.http
+      .get<IContent[]>('https://jsonplaceholder.typicode.com/photos', {
+        params: {
+          _start: startIndex.toString(),
+          _limit: '12',
+        },
+      })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.router.navigate(['/404']);
+          }
+          return throwError(error);
+        }),
+        tap((posts) => {
+          this.POSTS = posts;
+          this.postsSubject.next(posts);
+        })
+    );
+
+  }
+
+
 
   get posts() {
     return this.POSTS
